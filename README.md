@@ -1,11 +1,30 @@
 # best_search_engine
 
-L'idée de la méthode TF-IDF est de calculer le score TF-IDF d'un documents pour tous les mots qu'il contient sauf les plus courants, puis de créer une matrice avec pour dimensions, le nombre de documents et le nombre de mots lemmatisés uniques (pas de répétition) dans tous ces documents. En d'autres mots, chaque colonne de cette matrice correspond au vecteur d'un document.
+The main script of the search engine is search_engine.py. The script tfidf_vectorizer.py contains our own implementation of a TF-IDF Vectorizer. Our search engine also uses scikit-learn's TF-IDF Vectorizer.
 
-Cela permet par la suite de créer un vecteur TF-IDF pour chaque requête et de le comparer avec les vecteurs de chaque document présent dans la matrice et d'ainsi trouver le document contenant des termes similaires
+The command '''python3 search_engine.py -h''' prints the different options that can be used to launch the search engine:
 
-On utilisera: 
-- TfidfVectorizer et cosine_similarity de sklearn
-- stopwords, word_tokenize et WordNetLemmatizer de nltk
+'''
+The Best Search Engine™: Research a french wikipedia article, the closest within our database will be outputed.
 
-J'ai laissé ce qu'on avait déjà fait dans le fichier python pour le moment
+options:
+  -h, --help            show this help message and exit
+  --mode {query,test}   Choose 'query' to manually enter queries or 'test' to test performance on a JSONL file.
+  --jsonl_path JSONL_PATH
+                        Path to the queries JSONL file. Defaults to 'requetes.jsonl'. The JSONL file indicated here should have the same structure as the
+                        default one.
+  --custom_vectorizer   Use custom TF-IDF vectorizer implementation. If not set, scikit-learn's implementation will be used.
+  --preprocessing {lemmatization,stemming}
+                        Select the preprocessing method: 'lemmatization' or 'stemming'.
+  --verbosity {0,1,2}   Set the verbosity level of results: 0 (minimal), 1 (default), 2 (detailed).
+'''
+
+The following commands correspond to the four scenarios described in our project report:
+
+- Scenario A: '''python3 search_engine.py --mode test --preprocessing lemmatization'''
+
+- Scenario B: '''python3 search_engine.py --mode test --preprocessing stemming'''
+
+- Scenario C: '''python3 search_engine.py --mode test --custom_vectorizer --preprocessing lemmatization'''
+
+- Scenario D: '''python3 search_engine.py --mode test --custom_vectorizer --preprocessing stemming'''
