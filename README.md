@@ -2,9 +2,9 @@
 
 The main script of the search engine is search_engine.py. The script tfidf_vectorizer.py contains our own implementation of a TF-IDF Vectorizer. Our search engine also uses scikit-learn's TF-IDF Vectorizer.
 
-The command '''python3 search_engine.py -h''' prints the different options that can be used to launch the search engine:
+The command `python3 search_engine.py -h` prints the different options that can be used to launch the search engine:
 
-'''
+```
 The Best Search Engine™: Research a french wikipedia article, the closest within our database will be outputed.
 
 options:
@@ -17,14 +17,14 @@ options:
   --preprocessing {lemmatization,stemming}
                         Select the preprocessing method: 'lemmatization' or 'stemming'.
   --verbosity {0,1,2}   Set the verbosity level of results: 0 (minimal), 1 (default), 2 (detailed).
-'''
+```
 
 The following commands correspond to the four scenarios described in our project report:
 
-- Scenario A: '''python3 search_engine.py --mode test --preprocessing lemmatization'''
+- Scenario A: `python3 search_engine.py --mode test --preprocessing lemmatization`
 
-- Scenario B: '''python3 search_engine.py --mode test --preprocessing stemming'''
+- Scenario B: `python3 search_engine.py --mode test --preprocessing stemming`
 
-- Scenario C: '''python3 search_engine.py --mode test --custom_vectorizer --preprocessing lemmatization'''
+- Scenario C: `python3 search_engine.py --mode test --custom_vectorizer --preprocessing lemmatization`
 
-- Scenario D: '''python3 search_engine.py --mode test --custom_vectorizer --preprocessing stemming'''
+- Scenario D: `python3 search_engine.py --mode test --custom_vectorizer --preprocessing stemming`
